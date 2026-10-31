@@ -1,0 +1,2041 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vailankanni Express | KA 19 C 8962</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
+
+    :root {
+      --maroon: #650018;
+      --maroon-dark: #35000d;
+      --maroon-light: #8b1730;
+
+      --gold: #f5c542;
+      --gold-light: #ffe58a;
+
+      --cream: #fffaf0;
+      --white: #ffffff;
+
+      --text: #292929;
+      --muted: #777;
+
+      --green: #19b96b;
+
+      --shadow:
+        0 20px 50px rgba(40, 0, 10, 0.13);
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(245, 197, 66, 0.10),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(101, 0, 24, 0.08),
+          transparent 25%
+        ),
+        #faf8f4;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* =====================================================
+       BACKGROUND DECORATION
+    ===================================================== */
+
+    .background-road {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .background-road::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(101, 0, 24, 0.08),
+          transparent 65%
+        );
+
+      top: -250px;
+      left: -200px;
+    }
+
+    .background-road::after {
+      content: "";
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(245, 197, 66, 0.12),
+          transparent 65%
+        );
+
+      right: -200px;
+      bottom: -200px;
+    }
+
+
+    /* =====================================================
+       TOP BRAND BAR
+    ===================================================== */
+
+    .top-bar {
+      background: var(--maroon-dark);
+      color: white;
+
+      padding: 9px 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .top-bar span {
+      color: var(--gold);
+      font-weight: 700;
+      margin-left: 5px;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      position: relative;
+
+      min-height: 650px;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(44, 0, 10, 0.97),
+          rgba(101, 0, 24, 0.92) 45%,
+          rgba(55, 0, 13, 0.97)
+        );
+
+      overflow: hidden;
+
+      color: white;
+
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+
+      box-shadow:
+        0 25px 70px rgba(40, 0, 10, 0.25);
+    }
+
+
+    /* decorative road */
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 900px;
+      height: 900px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(245, 197, 66, 0.12);
+
+      right: -400px;
+      top: -200px;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      left: -350px;
+      bottom: -350px;
+    }
+
+
+    .hero-container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding:
+        60px 25px
+        90px;
+
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 50px;
+
+      align-items: center;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    /* =====================================================
+       HERO TEXT
+    ===================================================== */
+
+    .brand-small {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      color: var(--gold);
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+
+    .brand-small i {
+      font-size: 16px;
+    }
+
+
+    .hero-title {
+      font-family: "Montserrat", sans-serif;
+
+      font-size:
+        clamp(42px, 7vw, 78px);
+
+      line-height: 0.95;
+
+      font-weight: 800;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .hero-title span {
+      color: var(--gold);
+
+      display: block;
+    }
+
+
+    .hero-description {
+      max-width: 500px;
+
+      color:
+        rgba(255,255,255,0.78);
+
+      line-height: 1.7;
+
+      font-size: 16px;
+
+      margin-bottom: 28px;
+    }
+
+
+    /* registration */
+
+    .registration {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 11px 18px;
+
+      border-radius: 50px;
+
+      background:
+        rgba(255,255,255,0.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+      backdrop-filter: blur(10px);
+
+      font-weight: 700;
+
+      font-size: 14px;
+    }
+
+
+    .registration i {
+      color: var(--gold);
+    }
+
+
+    /* =====================================================
+       HERO IMAGE
+    ===================================================== */
+
+    .hero-image-area {
+      position: relative;
+    }
+
+
+    .image-glow {
+      position: absolute;
+
+      width: 80%;
+
+      height: 80%;
+
+      background:
+        rgba(245,197,66,0.16);
+
+      filter: blur(70px);
+
+      border-radius: 50%;
+
+      right: 0;
+      top: 10%;
+    }
+
+
+    .bus-image-frame {
+      position: relative;
+
+      border-radius: 25px;
+
+      padding: 7px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          rgba(255,255,255,0.25),
+          var(--gold)
+        );
+
+      transform:
+        rotate(1deg);
+
+      box-shadow:
+        0 35px 80px
+        rgba(0,0,0,0.40);
+    }
+
+
+    .bus-image-frame img {
+      display: block;
+
+      width: 100%;
+
+      height: 440px;
+
+      object-fit: cover;
+
+      object-position: center;
+
+      border-radius: 19px;
+
+      background: #222;
+    }
+
+
+    /* floating label */
+
+    .image-label {
+      position: absolute;
+
+      bottom: 22px;
+      left: 22px;
+
+      padding:
+        12px 17px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(35,0,8,0.85);
+
+      backdrop-filter:
+        blur(12px);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+
+    .image-label strong {
+      color: var(--gold);
+
+      display: block;
+
+      font-size: 15px;
+
+      margin-bottom: 2px;
+    }
+
+
+    /* =====================================================
+       MAIN
+    ===================================================== */
+
+    .main {
+      max-width: 1100px;
+
+      margin:
+        -45px auto
+        0;
+
+      padding:
+        0 20px 80px;
+
+      position: relative;
+
+      z-index: 5;
+    }
+
+
+    /* =====================================================
+       QUICK INFO
+    ===================================================== */
+
+    .quick-info {
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 10px;
+
+      box-shadow: var(--shadow);
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 5px;
+    }
+
+
+    .quick-item {
+      padding: 18px 12px;
+
+      text-align: center;
+
+      border-radius: 14px;
+
+      transition: 0.3s;
+    }
+
+
+    .quick-item:hover {
+      background: #fff9e7;
+
+      transform: translateY(-3px);
+    }
+
+
+    .quick-icon {
+      width: 40px;
+      height: 40px;
+
+      margin:
+        0 auto 8px;
+
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        rgba(101,0,24,0.07);
+
+      color: var(--maroon);
+
+      font-size: 16px;
+    }
+
+
+    .quick-item strong {
+      display: block;
+
+      font-size: 13px;
+
+      margin-bottom: 2px;
+    }
+
+
+    .quick-item small {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .section {
+      margin-top: 35px;
+    }
+
+
+    .section-heading {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: end;
+
+      margin-bottom: 18px;
+    }
+
+
+    .section-heading h2 {
+      font-family: "Montserrat", sans-serif;
+
+      color: var(--maroon);
+
+      font-size: 24px;
+    }
+
+
+    .section-heading p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 4px;
+    }
+
+
+    .gold-line {
+      width: 45px;
+      height: 4px;
+
+      background: var(--gold);
+
+      border-radius: 20px;
+
+      margin-top: 9px;
+    }
+
+
+    /* =====================================================
+       ROUTE CARD
+    ===================================================== */
+
+    .route-card {
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #fffaf0
+        );
+
+      border:
+        1px solid #eee4cd;
+
+      border-radius: 22px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 12px 35px
+        rgba(50,20,0,0.07);
+    }
+
+
+    .route-line {
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .route-point {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background: var(--maroon);
+
+      color: var(--gold);
+
+      box-shadow:
+        0 5px 15px
+        rgba(101,0,24,0.25);
+    }
+
+
+    .route-point.end {
+      background: var(--gold);
+
+      color: var(--maroon);
+    }
+
+
+    .route-city strong {
+      display: block;
+
+      font-size: 17px;
+
+      color: var(--maroon);
+    }
+
+
+    .route-city small {
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+
+    .route-track {
+      flex: 1;
+
+      height: 3px;
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--gold) 0 10px,
+          transparent 10px 18px
+        );
+    }
+
+
+    .stops {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+    }
+
+
+    .stop {
+      padding:
+        8px 12px;
+
+      background: white;
+
+      border:
+        1px solid #eee4cd;
+
+      border-radius: 50px;
+
+      font-size: 12px;
+
+      color: #5c4a29;
+
+      font-weight: 600;
+    }
+
+
+    .stop i {
+      color: var(--gold);
+
+      margin-right: 4px;
+    }
+
+
+    /* =====================================================
+       TIMETABLE
+    ===================================================== */
+
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .trip-panel {
+      background: #fff;
+      border: 1px solid #eee4cd;
+      border-radius: 17px;
+      padding: 16px;
+      box-shadow: 0 7px 20px rgba(0,0,0,0.04);
+      min-width: 0;
+    }
+    .trip-panel h3 {
+      color: var(--maroon);
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .trip-panel .trip-note {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .time-list { list-style: none; }
+    .time-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #eee4cd;
+      font-size: 12px;
+    }
+    .time-list li:last-child { border-bottom: 0; }
+    .time-list .stop-name { color: #484038; }
+    .time-list .stop-time {
+      white-space: nowrap;
+      color: var(--maroon);
+      font-weight: 800;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+    }
+    .schedule-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fff7dc;
+      color: #5c4a29;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+
+    .schedule-card {
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      background: white;
+
+      border-radius: 17px;
+
+      padding: 15px;
+
+      border:
+        1px solid #eee;
+
+      box-shadow:
+        0 7px 20px
+        rgba(0,0,0,0.04);
+
+      transition: 0.25s;
+    }
+
+
+    .schedule-card:hover {
+      border-color: var(--gold);
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 12px 25px
+        rgba(101,0,24,0.08);
+    }
+
+
+    .time {
+      min-width: 80px;
+
+      text-align: center;
+
+      padding: 9px 7px;
+
+      border-radius: 11px;
+
+      background:
+        #fff7dc;
+
+      color:
+        var(--maroon);
+
+      font-family:
+        "Montserrat", sans-serif;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+
+    .schedule-route {
+      flex: 1;
+    }
+
+
+    .schedule-route strong {
+      display: block;
+
+      font-size: 14px;
+
+      color: #333;
+    }
+
+
+    .schedule-route small {
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       BOOKING BANNER
+    ===================================================== */
+
+    .booking {
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          120deg,
+          var(--maroon-dark),
+          var(--maroon),
+          #8e1731
+        );
+
+      color: white;
+
+      border-radius: 25px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 20px 45px
+        rgba(101,0,24,0.22);
+    }
+
+
+    .booking::after {
+      content: "🚌";
+
+      position: absolute;
+
+      right: -10px;
+      bottom: -35px;
+
+      font-size: 160px;
+
+      opacity: 0.07;
+
+      transform: rotate(-10deg);
+    }
+
+
+    .booking-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 650px;
+    }
+
+
+    .booking h2 {
+      font-family:
+        "Montserrat", sans-serif;
+
+      font-size: 27px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .booking h2 span {
+      color: var(--gold);
+    }
+
+
+    .booking p {
+      color:
+        rgba(255,255,255,0.72);
+
+      line-height: 1.6;
+
+      font-size: 13px;
+
+      margin-bottom: 20px;
+    }
+
+
+    .booking-services {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .booking-service {
+      background:
+        rgba(255,255,255,0.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+      padding:
+        8px 12px;
+
+      border-radius: 50px;
+
+      font-size: 11px;
+    }
+
+
+    .booking-service i {
+      color: var(--gold);
+
+      margin-right: 5px;
+    }
+
+
+    .booking-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      background:
+        var(--gold);
+
+      color:
+        var(--maroon-dark);
+
+      padding:
+        13px 19px;
+
+      border-radius: 12px;
+
+      font-weight: 800;
+
+      font-size: 13px;
+
+      transition: 0.25s;
+
+      box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.2);
+    }
+
+
+    .booking-button:hover {
+      transform:
+        translateY(-3px);
+
+      background:
+        var(--gold-light);
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 15px;
+    }
+
+
+    .contact-card {
+      background: white;
+
+      padding: 22px;
+
+      border-radius: 19px;
+
+      border:
+        1px solid #eee;
+
+      box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.05);
+    }
+
+
+    .contact-card h3 {
+      color: var(--maroon);
+
+      font-size: 16px;
+
+      margin-bottom: 7px;
+    }
+
+
+    .contact-card p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.5;
+
+      margin-bottom: 15px;
+    }
+
+
+    .contact-button {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 8px;
+
+      width: 100%;
+
+      padding: 12px;
+
+      border-radius: 11px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      color: white;
+    }
+
+
+    .call {
+      background: var(--maroon);
+    }
+
+
+    .whatsapp {
+      background: var(--green);
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+      margin-top: 45px;
+
+      text-align: center;
+
+      color: #999;
+
+      font-size: 11px;
+
+      padding-bottom: 20px;
+    }
+
+
+    footer strong {
+      color: var(--maroon);
+    }
+
+
+    /* =====================================================
+       FLOATING WHATSAPP
+    ===================================================== */
+
+    .floating-whatsapp {
+      position: fixed;
+
+      right: 20px;
+      bottom: 20px;
+
+      width: 55px;
+      height: 55px;
+
+      border-radius: 50%;
+
+      background:
+        var(--green);
+
+      color: white;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 24px;
+
+      box-shadow:
+        0 10px 25px
+        rgba(25,185,107,0.35);
+
+      z-index: 100;
+
+      animation:
+        pulse 2.5s infinite;
+    }
+
+
+    @keyframes pulse {
+
+      0% {
+        box-shadow:
+          0 0 0 0
+          rgba(25,185,107,0.45);
+      }
+
+      70% {
+        box-shadow:
+          0 0 0 14px
+          rgba(25,185,107,0);
+      }
+
+      100% {
+        box-shadow:
+          0 0 0 0
+          rgba(25,185,107,0);
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        min-height: auto;
+
+        border-radius:
+          0 0 28px 28px;
+      }
+
+
+      .hero-container {
+
+        grid-template-columns: 1fr;
+
+        padding:
+          45px 20px
+          80px;
+
+        gap: 35px;
+      }
+
+
+      .hero-title {
+        font-size: 50px;
+      }
+
+
+      .hero-image-area {
+        max-width: 650px;
+
+        width: 100%;
+
+        margin: auto;
+      }
+
+
+      .bus-image-frame img {
+        height: 370px;
+      }
+
+
+      .quick-info {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .schedule {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .top-bar {
+        font-size: 10px;
+      }
+
+
+      .hero-container {
+        padding:
+          35px 16px
+          65px;
+      }
+
+
+      .hero-title {
+        font-size: 42px;
+
+        letter-spacing: -1px;
+      }
+
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+
+      .bus-image-frame img {
+        height: 300px;
+      }
+
+
+      .main {
+        padding:
+          0 14px 60px;
+      }
+
+
+      .quick-info {
+        padding: 6px;
+      }
+
+
+      .quick-item {
+        padding: 14px 7px;
+      }
+
+
+      .route-card,
+      .booking {
+        padding: 20px;
+      }
+
+
+      .route-line {
+        gap: 8px;
+      }
+
+
+      .route-city strong {
+        font-size: 14px;
+      }
+
+
+      .route-track {
+        min-width: 25px;
+      }
+
+
+      .schedule-card {
+        padding: 12px;
+      }
+      .schedule { grid-template-columns: 1fr; }
+
+
+      .time {
+        min-width: 73px;
+      }
+
+
+      .booking h2 {
+        font-size: 23px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- Background decoration -->
+  <div class="background-road"></div>
+
+
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
+  <div class="top-bar">
+
+    <i class="fa-solid fa-shield-heart"></i>
+
+    &nbsp; Safe &nbsp;•&nbsp;
+    Reliable &nbsp;•&nbsp;
+    Comfortable Travel
+
+    <span>
+      VAILANKANNI EXPRESS
+    </span>
+
+  </div>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero">
+
+    <div class="hero-container">
+
+
+      <!-- TEXT -->
+
+      <div>
+
+        <div class="brand-small">
+
+          <i class="fa-solid fa-bus"></i>
+
+          Vailankanni Express
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+          Travel
+
+          <span>with Trust.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          Passenger-friendly bus timings and route information
+          for travel between Puttur, Vittal and Mangaluru.
+
+        </p>
+
+
+        <div class="registration">
+
+          <i class="fa-solid fa-id-card"></i>
+
+          Bus Registration:
+          KA 19 C 8962
+
+        </div>
+
+      </div>
+
+
+      <!-- BUS IMAGE -->
+
+      <div class="hero-image-area">
+
+        <div class="image-glow"></div>
+
+
+        <div class="bus-image-frame">
+
+          <img
+            src="vailankanni-bus-ka19c8962.jpg"
+            alt="Vailankanni Express Bus KA 19 C 8962"
+          >
+
+
+          <div class="image-label">
+
+            <strong>
+              KA 19 C 8962
+            </strong>
+
+            Vailankanni Express
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main class="main">
+
+
+    <!-- QUICK INFORMATION -->
+
+    <div class="quick-info">
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <i class="fa-solid fa-route"></i>
+
+        </div>
+
+        <strong>Daily Service</strong>
+
+        <small>Regular Route</small>
+
+      </div>
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+        </div>
+
+        <strong>Multiple Stops</strong>
+
+        <small>Key Locations</small>
+
+      </div>
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <i class="fa-solid fa-clock"></i>
+
+        </div>
+
+        <strong>Timetable</strong>
+
+        <small>Daily Schedule</small>
+
+      </div>
+
+
+      <div class="quick-item">
+
+        <div class="quick-icon">
+
+          <i class="fa-solid fa-calendar-check"></i>
+
+        </div>
+
+        <strong>Bus Rental</strong>
+
+        <small>Private Booking</small>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         ROUTE
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <h2>
+            <i class="fa-solid fa-map"></i>
+            Our Route
+          </h2>
+
+          <div class="gold-line"></div>
+
+        </div>
+
+        <p>
+          Key locations covered
+        </p>
+
+      </div>
+
+
+      <div class="route-card">
+
+
+        <div class="route-line">
+
+
+          <div class="route-point">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </div>
+
+
+          <div class="route-city">
+
+            <strong>
+              Puttur
+            </strong>
+
+            <small>
+              Starting Point
+            </small>
+
+          </div>
+
+
+          <div class="route-track"></div>
+
+
+          <div class="route-city">
+
+            <strong>
+              Mangaluru
+            </strong>
+
+            <small>
+              Destination
+            </small>
+
+          </div>
+
+
+          <div class="route-point end">
+
+            <i class="fa-solid fa-flag-checkered"></i>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="stops">
+          <span class="stop"><i class="fa-solid fa-circle"></i> Puttur (ಪುತ್ತೂರು)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Kabaka (ಕಬಕ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Vittal (ವಿಟ್ಲ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Salethur (ಸಾಲೆತ್ತೂರು)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Mudipu (ಮುಡಿಪು)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Konaje (ಕೊಣಾಜೆ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Asaigoli (ಅಸೈಗೋಳಿ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Deralakatte (ದೇರಳಕಟ್ಟೆ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Yenepoya (ಯೆನಪೋಯ)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Kuthar (ಕುತ್ತಾರು)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Thokkottu (ತೊಕ್ಕೊಟ್ಟು)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Pumpwell (ಪಂಪ್‌ವೆಲ್)</span>
+          <span class="stop"><i class="fa-solid fa-circle"></i> Kankanady (ಕಂಕನಾಡಿ)</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         TIMETABLE
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <h2 id="timetable">
+            <i class="fa-solid fa-clock"></i>
+            Full Bus Timetable
+          </h2>
+
+          <div class="gold-line"></div>
+
+        </div>
+
+        <p>
+          Daily service timings
+        </p>
+
+      </div>
+
+
+      <div class="schedule">
+
+        <article class="trip-panel">
+          <h3>Trip 1 · Morning</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Puttur / Bus Stand</span><span class="stop-time">6:55AM</span></li>
+            <li><span class="stop-name">Kabaka</span><span class="stop-time">7:05 AM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">7:15–7:30 AM</span></li>
+            <li><span class="stop-name">Salethur</span><span class="stop-time">7:55 AM</span></li>
+            <li><span class="stop-name">Bakrabail</span><span class="stop-time">8:05 AM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">8:17–8:20 AM</span></li>
+            <li><span class="stop-name">Asaigoli / nearby stop</span><span class="stop-time">8:29–8:30 AM</span></li>
+            <li><span class="stop-name">Kuthar</span><span class="stop-time">8:42–8:45 AM</span></li>
+            <li><span class="stop-name">Pumpwell</span><span class="stop-time">9:00 AM</span></li>
+            <li><span class="stop-name">Mangaluru</span><span class="stop-time">9:05 AM</span></li>
+          </ul>
+        </article>
+
+        <article class="trip-panel">
+          <h3>Trip 2 · Morning</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Kankanady / Mangaluru side</span><span class="stop-time">9:25 AM</span></li>
+            <li><span class="stop-name">Kankanady Bypass</span><span class="stop-time">9:31 AM</span></li>
+            <li><span class="stop-name">Pumpwell</span><span class="stop-time">9:33 AM</span></li>
+            <li><span class="stop-name">Thokkottu</span><span class="stop-time">9:41–9:44 AM</span></li>
+            <li><span class="stop-name">Thokkottu upper side</span><span class="stop-time">9:48–9:50 AM</span></li>
+            <li><span class="stop-name">Kuthar</span><span class="stop-time">9:55 AM</span></li>
+            <li><span class="stop-name">Yenepoya</span><span class="stop-time">9:59 AM</span></li>
+            <li><span class="stop-name">Deralakatte</span><span class="stop-time">10:03 AM</span></li>
+            <li><span class="stop-name">Asaigoli</span><span class="stop-time">10:10 AM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">10:19–10:20 AM</span></li>
+            <li><span class="stop-name">Bakrabail</span><span class="stop-time">10:38 AM</span></li>
+            <li><span class="stop-name">Salethur</span><span class="stop-time">10:49–10:50 AM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">11:05–11:15 AM</span></li>
+            <li><span class="stop-name">Puttur / final stop unclear</span><span class="stop-time">11:25 AM</span></li>
+          </ul>
+        </article>
+
+        <article class="trip-panel">
+          <h3>Trip 3 · Midday</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Puttur</span><span class="stop-time">11:52–11:59 AM</span></li>
+            <li><span class="stop-name">Kabaka</span><span class="stop-time">12:12–12:15 PM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">12:25–12:35 PM</span></li>
+            <li><span class="stop-name">Kadambu</span><span class="stop-time">12:41–12:43 PM</span></li>
+            <li><span class="stop-name">Kudtameru</span><span class="stop-time">12:47–12:50 PM</span></li>
+            <li><span class="stop-name">Salethur</span><span class="stop-time">12:55</span></li>
+            <li><span class="stop-name">Bakrabail</span><span class="stop-time">1:05 PM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">1:14–1:15 PM</span></li>
+            <li><span class="stop-name">Asaigoli</span><span class="stop-time">1:24–1:25 PM</span></li>
+            <li><span class="stop-name">Kanachur</span><span class="stop-time">1:31 PM</span></li>
+            <li><span class="stop-name">Thokkotu</span><span class="stop-time">1:40 PM</span></li>
+            <li><span class="stop-name">Mangaluru</span><span class="stop-time">1:55 PM</span></li>
+          
+            
+          </ul>
+        </article>
+
+        <article class="trip-panel">
+          <h3>Trip 4 · Afternoon</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Kankanady</span><span class="stop-time">2:02–2:05 PM</span></li>
+            <li><span class="stop-name">Kabaka Bypass</span><span class="stop-time">2:07 PM</span></li>
+            <li><span class="stop-name">Pumpwell</span><span class="stop-time">2:08–2:09 PM</span></li>
+            <li><span class="stop-name">Thokkottu</span><span class="stop-time">2:18 PM</span></li>
+            <li><span class="stop-name">Thokkottu upper side</span><span class="stop-time">2:22–2:25 PM</span></li>
+            <li><span class="stop-name">Kuthar</span><span class="stop-time">2:28 PM</span></li>
+            <li><span class="stop-name">Yenepoya</span><span class="stop-time">2:30 PM</span></li>
+            <li><span class="stop-name">Deralakatte</span><span class="stop-time">2:35 PM</span></li>
+            <li><span class="stop-name">Asaigoli</span><span class="stop-time">2:45 PM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">2:54–2:55 PM</span></li>
+            <li><span class="stop-name">Bakrabail</span><span class="stop-time">3:05 PM</span></li>
+            <li><span class="stop-name">Salethur</span><span class="stop-time">3:17 PM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">3:35–3:45 PM</span></li>
+            <li><span class="stop-name">Kabaka</span><span class="stop-time">3:55–4:00 PM</span></li>
+            <li><span class="stop-name">Puttur</span><span class="stop-time">4:08–4:12 PM</span></li>
+          </ul>
+        </article>
+
+        <article class="trip-panel">
+          <h3>Trip 5 · Evening</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Puttur</span><span class="stop-time">4:12 PM</span></li>
+            <li><span class="stop-name">Kabaka</span><span class="stop-time">4:25 PM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">4:45-4:50 PM</span></li>
+            <li><span class="stop-name">Kudtameru</span><span class="stop-time">5:05 PM</span></li>
+            <li><span class="stop-name">Salethur</span><span class="stop-time">5:15–5:23–5:25 PM</span></li>
+            <li><span class="stop-name">Bakrabail</span><span class="stop-time">5:30–5:35 PM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">5:40–5:47–5:50 PM</span></li>
+            <li><span class="stop-name">Asaigoli</span><span class="stop-time">5:57–6:00 PM</span></li>
+            <li><span class="stop-name">Natikal / stop unclear</span><span class="stop-time">6:01–6:04 PM</span></li>
+            <li><span class="stop-name">Deralakatte</span><span class="stop-time">6:05–6:07 PM</span></li>
+            <li><span class="stop-name">Yenepoya</span><span class="stop-time">6:13 PM</span></li>
+            <li><span class="stop-name">Thokkottu</span><span class="stop-time">6:22 PM</span></li>
+            <li><span class="stop-name">Kankanady</span><span class="stop-time">6:30–6:35 PM</span></li>
+          </ul>
+        </article>
+
+        <article class="trip-panel">
+          <h3>Trip 6 · Evening</h3>
+          <ul class="time-list">
+            <li><span class="stop-name">Kankanady</span><span class="stop-time">6:35 PM</span></li>
+            <li><span class="stop-name">Kankanady Bypass</span><span class="stop-time">6:40–6:41 PM</span></li>
+            <li><span class="stop-name">Pumpwell</span><span class="stop-time">6:43 PM</span></li>
+            <li><span class="stop-name">Thokkottu</span><span class="stop-time">6:55 PM</span></li>
+            <li><span class="stop-name">Deralakatte</span><span class="stop-time">7:08 PM</span></li>
+            <li><span class="stop-name">Asaigoli</span><span class="stop-time">7:15 PM</span></li>
+            <li><span class="stop-name">Mudipu</span><span class="stop-time">7:25 PM</span></li>
+            <li><span class="stop-name">Vittal</span><span class="stop-time">8:05 PM</span></li>
+            <li><span class="stop-name">Puttur</span><span class="stop-time">8:30 PM</span></li>
+          </ul>
+        </article>
+
+      </div>
+      
+
+    </section>
+
+
+
+    <!-- =================================================
+         PRIVATE BOOKING
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="booking">
+
+
+        <div class="booking-content">
+
+          <h2>
+
+            Need a Bus for
+
+            <span>your event?</span>
+
+          </h2>
+
+
+          <p>
+
+            Planning a wedding, family trip,
+            pilgrimage, college trip or group tour?
+            Hire the Vailankanni bus for your private journey.
+
+          </p>
+
+
+          <div class="booking-services">
+
+            <span class="booking-service">
+
+              <i class="fa-solid fa-ring"></i>
+
+              Weddings
+
+            </span>
+
+
+            <span class="booking-service">
+
+              <i class="fa-solid fa-users"></i>
+
+              Family Trips
+
+            </span>
+
+
+            <span class="booking-service">
+
+              <i class="fa-solid fa-place-of-worship"></i>
+
+              Pilgrimage
+
+            </span>
+
+
+            <span class="booking-service">
+
+              <i class="fa-solid fa-graduation-cap"></i>
+
+              College Trips
+
+            </span>
+
+
+            <span class="booking-service">
+
+              <i class="fa-solid fa-mountain-sun"></i>
+
+              Tours
+
+            </span>
+
+          </div>
+
+
+          <a
+            class="booking-button"
+            href="https://wa.me/919880884835?text=Hello%2C%20I%20want%20to%20book%20Vailankanni%20bus%20for%20a%20private%20trip%2Fevent."
+            target="_blank"
+          >
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            Enquire for Bus Booking
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section class="section">
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <h2>
+            <i class="fa-solid fa-headset"></i>
+            Contact Us
+          </h2>
+
+          <div class="gold-line"></div>
+
+        </div>
+
+        <p>
+          We're here to help
+        </p>
+
+      </div>
+
+
+      <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+          <h3>
+
+            <i class="fa-solid fa-phone"></i>
+
+            Call Operator
+
+          </h3>
+
+
+          <p>
+
+            For schedule information,
+            lost & found, seat enquiries
+            or general assistance.
+
+          </p>
+
+
+          <a
+            href="tel:+919880884835"
+            class="contact-button call"
+          >
+
+            <i class="fa-solid fa-phone"></i>
+
+            9880884835
+
+          </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <h3>
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            WhatsApp
+
+          </h3>
+
+
+          <p>
+
+            Chat with us for private bookings,
+            enquiries and bus information.
+
+          </p>
+
+
+          <a
+            href="https://wa.me/919880884835?text=Hello%2C%20I%20have%20an%20inquiry%20regarding%20Vailankanni%20bus."
+            target="_blank"
+            class="contact-button whatsapp"
+          >
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            Chat on WhatsApp
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+      <strong>
+        VAILANKANNI EXPRESS
+      </strong>
+
+      <br>
+
+      KA 19 C 8962
+
+      <br><br>
+
+      Safe • Comfortable • Reliable
+
+      <br>
+
+      Digital Bus Information System
+
+    </footer>
+
+
+  </main>
+
+
+
+  <!-- =================================================
+       FLOATING WHATSAPP
+  ================================================== -->
+
+  <a
+    href="https://wa.me/919880884835?text=Hello%2C%20I%20have%20an%20inquiry%20regarding%20Vailankanni%20bus."
+    target="_blank"
+    class="floating-whatsapp"
+    aria-label="WhatsApp"
+  >
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+  </a>
+
+
+</body>
+</html>
+```
